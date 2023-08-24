@@ -4,36 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hey there!</title>
+    <style>
+      .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+      }
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
-      crossorigin="anonymous"
-    />
+      .wrapper{
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+        background-color: #000;
+        display: grid;
+        place-items: center;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
-  <body>
-    <div class="vh-100 overflow-hidden">
+  <body style="margin: 0; padding: 0">
+    <div style="height: 100vh; overflow: hidden">
+      <div class="wrapper">
+        <div class="loader"></div>
+      </div>
+
       <video
         src="./BBTQ5329.MOV"
-        autoplay="true"
         muted="false"
-        class="img-fluid"
-        style="height: 100%; width: 100%; object-fit: cover"
+        style="height: 100%; width: 100%; object-fit: cover; max-width: 100%"
       ></video>
     </div>
     <script>
       const video = document.querySelector("video");
-      video.onplay = function () {
+      video.onloadeddata = (e)=>{
         video.volume = 0.5;
         try {
           video.requestFullscreen();
         } catch (err) {
           console.debug(err);
         }
-      };
-
-      document.body.onclick = () => video.requestFullscreen()
+        video.play();
+        document.querySelector('.wrapper').style.display = 'none'
+      }
     </script>
   </body>
 </html>
