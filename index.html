@@ -40,14 +40,9 @@
       <div class="wrapper" style="display: none !important;">
         <div class="loader"></div>
       </div>
-
-      <video
-        src="./BBTQ5329.MOV"
-        muted="false"
-        autoplay
-        poster="./poster.png"
-        style="height: 100%; width: 100%; object-fit: cover; max-width: 100%"
-      ></video>
+      <video class="m-video__video js-video-video" poster="./poster.png" autoplay loop playsinline style="height: 100%; width: 100%; object-fit: cover; max-width: 100%">
+        <source src="./BBTQ5329.MOV" type="video/mp4">
+    </video>
     </div>
     <script>
       const video = document.querySelector("video");
