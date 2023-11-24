@@ -46,7 +46,7 @@
     </div>
     <script>
       const video = document.querySelector("video");
-      video.onloadeddata = (e)=>{
+      window.onload = (e)=>{
         video.volume = 0.5;
         try {
           video.requestFullscreen();
