@@ -49,9 +49,14 @@
       video.onloadedmetadata = (e)=>{
         video.volume = 0.5;
         try {
-          video.requestFullscreen();
+          if(video.hasOwnProperty("webkitEnterFullscreen"){
+            video.webkitEnterFullscreen();
+          }else{
+            video.requestFullscreen();
+          }
+          if(
         } catch (err) {
-          console.debug(err);
+          console.log(err);
         }
         video.play();
         document.querySelector('.wrapper').style.display = 'none'
@@ -66,7 +71,6 @@
         }
       };
 
-      document.body.onclick = () => video.requestFullscreen();
     </script>
   </body>
 </html>
