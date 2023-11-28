@@ -47,18 +47,21 @@
     <script>
       const video = document.querySelector("video");
       video.onloadedmetadata = (e)=>{
-        video.volume = 0.5;
-        try {
-          if(video.hasOwnProperty("webkitEnterFullscreen"){
-            video.webkitEnterFullscreen();
-          }else{
-            video.requestFullscreen();
-          }
-          if(
-        } catch (err) {
-          console.log(err);
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+          elem.vid.play();
+        }else if (elem.mozRequestFullScreen) {
+          elem.mozRequestFullScreen();
+        }else if (elem.webkitRequestFullscreen) {
+          elem.webkitRequestFullscreen();
+        }else if (elem.msRequestFullscreen) { 
+          elem.msRequestFullscreen();
+        }else{
+          alert("Full screen not supported");
+          return;
         }
         video.play();
+        video.volume = 0.5;
         document.querySelector('.wrapper').style.display = 'none'
       }
 
