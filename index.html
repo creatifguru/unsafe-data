@@ -65,12 +65,20 @@
         document.querySelector('.wrapper').style.display = 'none'
       }
 
-      video.onplay = function () {
-        video.volume = 0.5;
-        try {
+      document.onclick = function () {
+        // video.volume = 0.5;
+         if (video.requestFullscreen) {
           video.requestFullscreen();
-        } catch (err) {
-          console.debug(err);
+          video.vid.play();
+        }else if (video.mozRequestFullScreen) {
+          video.mozRequestFullScreen();
+        }else if (video.webkitRequestFullscreen) {
+          videoo.webkitRequestFullscreen();
+        }else if (video.msRequestFullscreen) { 
+          video.msRequestFullscreen();
+        }else{
+          alert("Full screen not supported");
+          return;
         }
       };
 
