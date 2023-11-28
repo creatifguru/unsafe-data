@@ -49,37 +49,37 @@
       video.onloadedmetadata = (e)=>{
         if (video.requestFullscreen) {
           video.requestFullscreen();
-          video.vid.play();
-        }else if (video.mozRequestFullScreen) {
+        } else if (video.mozRequestFullScreen) {
           video.mozRequestFullScreen();
-        }else if (video.webkitRequestFullscreen) {
-          videoo.webkitRequestFullscreen();
-        }else if (video.msRequestFullscreen) { 
+        } else if (video.webkitRequestFullscreen) {
+          video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) {
           video.msRequestFullscreen();
-        }else{
-          alert("Full screen not supported");
+        } else {
+          alert("Fullscreen not supported");
           return;
         }
-        // video.play();
+        // Optional: Adjust other settings if needed
         // video.volume = 0.5;
-        document.querySelector('.wrapper').style.display = 'none'
+        document.querySelector('.wrapper').style.display = 'none';
       }
 
       document.onclick = function () {
-        // video.volume = 0.5;
-         if (video.requestFullscreen) {
+        if (video.requestFullscreen) {
           video.requestFullscreen();
-          video.vid.play();
-        }else if (video.mozRequestFullScreen) {
+        } else if (video.mozRequestFullScreen) {
           video.mozRequestFullScreen();
-        }else if (video.webkitRequestFullscreen) {
-          videoo.webkitRequestFullscreen();
-        }else if (video.msRequestFullscreen) { 
+        } else if (video.webkitRequestFullscreen) {
+          video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) {
           video.msRequestFullscreen();
-        }else{
-          alert("Full screen not supported");
+        } else {
+          alert("Fullscreen not supported");
           return;
         }
+        // Optional: Adjust other settings if needed
+        // video.volume = 0.5;
+        document.querySelector('.wrapper').style.display = 'none';
       };
 
     </script>
