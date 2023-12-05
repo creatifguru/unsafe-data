@@ -48,6 +48,7 @@
       const video = document.querySelector("video");
 
       video.onclick = function () {
+        video.play();
         if (video.requestFullscreen) {
           video.requestFullscreen();
         } else if (video.mozRequestFullScreen) {
@@ -60,7 +61,6 @@
           alert("Fullscreen not supported");
           return;
         }
-        video.play();
         // Optional: Adjust other settings if needed
         // video.volume = 0.5;
         document.querySelector('.wrapper').style.display = 'none';
