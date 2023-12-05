@@ -57,6 +57,8 @@
           video.webkitRequestFullscreen();
         } else if (video.msRequestFullscreen) {
           video.msRequestFullscreen();
+        } else {
+          return;
         }
         // Optional: Adjust other settings if needed
         // video.volume = 0.5;
